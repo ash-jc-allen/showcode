@@ -639,7 +639,7 @@ export default {
             }[method];
 
             generateImageFromPreview(method, preferences.exportPixelRatio).then((dataUrl) => {
-                const filename = name.value || title.value || 'Untitled-1';
+                const filename = name.value || title.value?.trim() || 'Untitled-1';
 
                 download(dataUrl, `${filename}.${extension}`);
             });
